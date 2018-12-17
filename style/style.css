@@ -1,0 +1,40 @@
+@import url(fonts.css);
+
+* {
+    font-family: "SFPro", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-area {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.time-piece {
+    margin: auto;
+    vertical-align: middle;
+}
+
+#time-text {
+    font-size: 145px;
+    text-shadow: 0 0 65px white;
+}
+
+#time-date {
+    font-size: 26px;
+    font-weight: 400;
+    text-shadow: 0 0 35px white;
+}
+
+#time-date sup {
+    font-size: 16px;
+    font-weight: 400;
+    text-shadow: 0 0 35px white;
+}
