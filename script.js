@@ -1,4 +1,5 @@
 $(document).ready(function main(){
+    $("#fade").hide(0).delay(1000).fadeIn(1000);
     let updateTime = setInterval(function updateTime() {
             let timeNow = moment().format("hh:mm");
             $("#time-text").html(timeNow);
@@ -22,4 +23,18 @@ $(document).ready(function main(){
             console.log("Test1");
         }, 1000
     );
+
+    const screenWidth = screen.width;
+    let imgSize = "";
+    if (screenWidth <= 1920){
+        imgSize = "large"
+    } else if (screenWidth <= 3840){
+        imgSize = "4k"
+    } else {
+        imgSize = "medium"
+    }
+    let imgId = Math.floor((Math.random() * 9) + 1);
+    let url = `images/${imgSize}-${imgId}`;
+    console.log(url);
+    $(".background").css(`background-image`, `url("${url}.png")`);
 });

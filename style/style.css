@@ -17,6 +17,15 @@
     text-align: center;
 }
 
+.background {
+    position: absolute;
+    z-index: -10;
+    height: 100vh;
+    width: 100vw;
+    background-image: none;
+    opacity: 0.4;
+}
+
 .time-piece {
     margin: auto;
     vertical-align: middle;
@@ -25,6 +34,7 @@
 #time-text {
     font-size: 145px;
     text-shadow: 0 0 65px white;
+    opacity: 1;
 }
 
 #time-date {
