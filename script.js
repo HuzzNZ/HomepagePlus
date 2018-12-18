@@ -43,4 +43,27 @@ $(document).ready(function main(){
     let url = `images/${imgSize}-${imgId}`;
     console.log(url);
     $(".background").css(`background-image`, `url("${url}.png")`);
+    let updateWeather = function (){
+        let weatherCity = "Auckland";
+        Weather.setApiKey("77f2d3977d531530ec5e3788c6473c04");
+        let currentTemp = 0;
+        let currentCond = "";
+
+        Weather.getCurrent(weatherCity, function(current){
+            console.log(current.temperature());
+            console.log(current.conditions());
+
+            currentTemp = Math.round(Weather.kelvinToCelsius(current.temperature()) * 10) / 10;
+            console.log(currentTemp);
+
+            currentCond = current.conditions().replace(/\b\w/g, l => l.toUpperCase());
+            console.log(currentCond);
+
+            $(".weather").html(`<p>${currentTemp}<b class=\"small\">&deg;C - ${currentCond}</b><hr id=\"linebreak\"><p class=\"city\">${weatherCity}, NZ</p></p>`);
+        });
+    };
+    updateWeather();
+    let weather = setInterval(function (){
+        updateWeather()
+    }, 5000)
 });
