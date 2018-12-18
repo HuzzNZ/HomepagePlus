@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="png/jpeg" href="images/icon-256.png">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <title>Homepage+</title>
+    <script src="jquery/jquery-3.3.1.js"></script>
+    <script src="libraries/moment.js"></script>
+    <script src="libraries/sugar.js"></script>
+    <script src="libraries/weather.js"></script>
+    <script src="script.js">
+        let weatherCity = "Trondheim"
+    </script>
+</head>
+<body>
+    <div class="main-area" id="fade">
+        <div class="parallax">
+            <div class="time-piece">
+                <p id="time-text"></p>
+                <p id="time-date"></p>
+            </div>
+            <div class="weather" city="Trondheim" country="Norway">
+            </div>
+            <div class="select-overlay"></div>
+            <div class="credit"><p>Made by Huzz.<br>
+                If any issues arise, please contact <b>Huzz</b>#2019 on discord!</p></div>
+        </div>
+        <div class="background"></div>
+    </div>
+</body>
+</html>
