@@ -12,6 +12,9 @@ $(document).ready(function main(){
             if (meridian === "pm"){
                 hourNow += 12;
             }
+            if (hourNow === 12){
+                hourNow -= 12;
+            }
             let timeNow = hourNow + ":" + minuteNow;
             $("#time-text").html(timeNow);
             let daySup = "th";
@@ -46,13 +49,20 @@ $(document).ready(function main(){
     console.log(url);
     $(".background").css(`background-image`, `url("${url}.png")`);
 
+
+    let userCity = geoplugin_city();
+    console.log(userCity);
+
+    let userCountry = geoplugin_countryName();
+    console.log(userCountry);
+
     /* Weather Element */
     let updateWeather = function (){
         Weather.setApiKey("77f2d3977d531530ec5e3788c6473c04");
         let currentTemp = 0;
         let currentCond = "";
-        let weatherCity = $(".weather").attr("city");
-        let weatherCountry = $(".weather").attr("country");
+        let weatherCity = userCity;
+        let weatherCountry = userCountry;
         if (weatherCountry) {
             weatherCountry = `, ${weatherCountry}`
         }
