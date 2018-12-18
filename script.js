@@ -53,6 +53,9 @@ $(document).ready(function main(){
         let currentCond = "";
         let weatherCity = $(".weather").attr("city");
         let weatherCountry = $(".weather").attr("country");
+        if (weatherCountry) {
+            weatherCountry = `, ${weatherCountry}`
+        }
         Weather.getCurrent(weatherCity, function(current){
             console.log(current.temperature());
             console.log(current.conditions());
@@ -63,7 +66,7 @@ $(document).ready(function main(){
             currentCond = current.conditions().replace(/\b\w/g, l => l.toUpperCase());
             console.log(currentCond);
 
-            $(".weather").html(`<p>${currentTemp}<b class=\"small\">&deg;C - ${currentCond}</b><hr id=\"linebreak\"><p class=\"city\">${weatherCity}, ${weatherCountry}</p></p>`);
+            $(".weather").html(`<p>${currentTemp}<b class=\"small\">&deg;C - ${currentCond}</b><hr id=\"linebreak\"><p class=\"city\">${weatherCity}${weatherCountry}</p></p>`);
         });
     };
     updateWeather();
