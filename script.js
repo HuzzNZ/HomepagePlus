@@ -9,11 +9,11 @@ $(document).ready(function main(){
             let monthYearNow = moment().format("MMMM, YYYY");
             let meridian = moment().format("a");
             hourNow = parseInt(hourNow);
-            if (meridian === "pm"){
-                hourNow += 12;
-            }
             if (hourNow === 12){
                 hourNow -= 12;
+            }
+            if (meridian === "pm"){
+                hourNow += 12;
             }
             let timeNow = hourNow + ":" + minuteNow;
             $("#time-text").html(timeNow);
