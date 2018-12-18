@@ -30,7 +30,7 @@ $(document).ready(function main(){
             }
             let dateNow = dayWNow + ", " + dayNow + '<sup>' + daySup + '</sup> of ' + monthYearNow;
             $("#time-date").html(dateNow);
-            console.log("Test1");
+            console.log(timeNow);
         }, 1000
     );
 
@@ -46,15 +46,15 @@ $(document).ready(function main(){
     }
     let imgId = Math.floor((Math.random() * 9) + 1);
     let url = `images/${imgSize}-${imgId}`;
-    console.log(url);
+    console.log("BACKGROUND IMAGE USED:" + url);
     $(".background").css(`background-image`, `url("${url}.png")`);
 
 
     let userCity = geoplugin_city();
-    console.log(userCity);
+    console.log("USER CITY DETECTED:" + userCity);
 
     let userCountry = geoplugin_countryName();
-    console.log(userCountry);
+    console.log("USER COUNTRY DETECTED:" + userCountry);
 
     /* Weather Element */
     let updateWeather = function (){
@@ -66,15 +66,11 @@ $(document).ready(function main(){
         if (weatherCountry) {
             weatherCountry = `, ${weatherCountry}`
         }
-        Weather.getCurrent(weatherCity, function(current){
-            console.log(current.temperature());
-            console.log(current.conditions());
-
+        Weather.getCurrent(weatherCity, function (current) {
             currentTemp = Math.round(Weather.kelvinToCelsius(current.temperature()) * 10) / 10;
-            console.log(currentTemp);
 
             currentCond = current.conditions().replace(/\b\w/g, l => l.toUpperCase());
-            console.log(currentCond);
+            console.log(currentTemp, currentCond);
 
             $(".weather").html(`<p>${currentTemp}<b class=\"small\">&deg;C - ${currentCond}</b><hr id=\"linebreak\"><p class=\"city\">${weatherCity}${weatherCountry}</p></p>`);
         });
@@ -82,7 +78,7 @@ $(document).ready(function main(){
     updateWeather();
     let weather = setInterval(function (){
         updateWeather()
-    }, 5000);
+    }, 60000);
 
     /* Parallax */
     const areaSelector = ".main-area";
@@ -102,6 +98,5 @@ $(document).ready(function main(){
         let windowPaddingHeightTop = windowPaddingHeight + ((mouseYOffset) * windowPaddingHeight / 1.5);
         let windowPaddingHeightBottom = windowPaddingHeight - ((mouseYOffset) * windowPaddingHeight / 1.5);
         $(".parallax").css("padding", `${windowPaddingHeightTop}px ${windowPaddingWidthRight}px ${windowPaddingHeightBottom}px ${windowPaddingWidthLeft}px`);
-        console.log(mouseXPercentage, mouseYPercentage)
     })
 });
