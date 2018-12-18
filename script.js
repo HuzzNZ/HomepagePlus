@@ -36,10 +36,10 @@ $(document).ready(function main(){
     let imgSize = "";
     if (screenWidth <= 1920){
         imgSize = "large"
-    } else if (screenWidth <= 3840){
+    } else if (screenWidth > 1920){
         imgSize = "4k"
     } else {
-        imgSize = "medium"
+        imgSize = "large"
     }
     let imgId = Math.floor((Math.random() * 9) + 1);
     let url = `images/${imgSize}-${imgId}`;

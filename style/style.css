@@ -20,6 +20,8 @@
     z-index: -10;
     background-image: none;
     opacity: 0.4;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .parallax {
