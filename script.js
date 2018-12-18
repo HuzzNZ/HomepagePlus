@@ -1,4 +1,5 @@
 $(document).ready(function main(){
+    /* Time Element */
     $("#fade").hide(0).delay(1000).fadeIn(1000);
     let updateTime = setInterval(function updateTime() {
             let hourNow = moment().format("hh");
@@ -30,6 +31,7 @@ $(document).ready(function main(){
         }, 1000
     );
 
+    /* Background Scripts */
     const screenWidth = screen.width;
     let imgSize = "";
     if (screenWidth <= 1920){
@@ -43,6 +45,8 @@ $(document).ready(function main(){
     let url = `images/${imgSize}-${imgId}`;
     console.log(url);
     $(".background").css(`background-image`, `url("${url}.png")`);
+
+    /* Weather Element */
     let updateWeather = function (){
         let weatherCity = "Auckland";
         Weather.setApiKey("77f2d3977d531530ec5e3788c6473c04");
@@ -65,5 +69,26 @@ $(document).ready(function main(){
     updateWeather();
     let weather = setInterval(function (){
         updateWeather()
-    }, 5000)
+    }, 5000);
+
+    /* Parallax */
+    const areaSelector = ".main-area";
+    const windowHeight = $(areaSelector).height();
+    const windowWidth = $(areaSelector).width();
+    let windowPaddingHeight = windowHeight * 0.03;
+    let windowPaddingWidth = windowWidth * 0.03;
+    $(areaSelector).on("mousemove", function(event){
+        let mouseX = event.clientX;
+        let mouseY = event.clientY;
+        let mouseXPercentage = mouseX / windowWidth;
+        let mouseYPercentage = mouseY / windowHeight;
+        let mouseXOffset = mouseXPercentage - 0.5;
+        let mouseYOffset = mouseYPercentage - 0.5;
+        let windowPaddingWidthLeft = windowPaddingWidth + ((mouseXOffset) * windowPaddingWidth / 1.5);
+        let windowPaddingWidthRight = windowPaddingWidth - ((mouseXOffset) * windowPaddingWidth / 1.5);
+        let windowPaddingHeightTop = windowPaddingHeight + ((mouseYOffset) * windowPaddingHeight / 1.5);
+        let windowPaddingHeightBottom = windowPaddingHeight - ((mouseYOffset) * windowPaddingHeight / 1.5);
+        $(".parallax").css("padding", `${windowPaddingHeightTop}px ${windowPaddingWidthRight}px ${windowPaddingHeightBottom}px ${windowPaddingWidthLeft}px`);
+        console.log(mouseXPercentage, mouseYPercentage)
+    })
 });
