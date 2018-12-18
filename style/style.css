@@ -83,6 +83,24 @@
     font-weight: 200;
 }
 
+.credit {
+    text-align: right;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.credit p {
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.credit p b {
+    font-size: 21px;
+}
+
 .select-overlay {
     position: fixed;
     z-index: 50;
