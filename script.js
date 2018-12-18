@@ -1,12 +1,18 @@
 $(document).ready(function main(){
     $("#fade").hide(0).delay(1000).fadeIn(1000);
     let updateTime = setInterval(function updateTime() {
-            let timeNow = moment().format("hh:mm");
-            $("#time-text").html(timeNow);
+            let hourNow = moment().format("hh");
+            let minuteNow = moment().format("mm");
             let dayWNow = moment().format("dddd");
             let dayNow = moment().format("DD");
             let monthYearNow = moment().format("MMMM, YYYY");
-
+            let meridian = moment().format("a");
+            hourNow = parseInt(hourNow);
+            if (meridian === "pm"){
+                hourNow += 12;
+            }
+            let timeNow = hourNow + ":" + minuteNow;
+            $("#time-text").html(timeNow);
             let daySup = "th";
 
             if (dayNow === "1" || dayNow === "21" || dayNow === "31"){
