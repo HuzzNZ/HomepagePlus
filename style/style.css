@@ -84,6 +84,7 @@
 }
 
 .credit {
+    display: none;
     text-align: right;
     align-self: flex-end;
     justify-self: flex-end;
