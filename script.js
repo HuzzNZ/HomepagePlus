@@ -51,17 +51,17 @@ $(document).ready(function main(){
     );
 
     /* Background Scripts */
-    // const screenWidth = screen.width;
-    // let imgSize = "";
-    // if (screenWidth <= 1920){
-    //     imgSize = "large"
-    // } else if (screenWidth > 1920){
-    //     imgSize = "4k"
-    // } else {
-    //     imgSize = "large"
-    // }
+    const screenWidth = screen.width;
+    let imgSize = "";
+    if (screenWidth <= 1920){
+        imgSize = "large"
+    } else if (screenWidth > 1920){
+        imgSize = "4k"
+    } else {
+        imgSize = "large"
+    }
     let imgId = Math.floor((Math.random() * 9) + 1);
-    let url = `images/4k-${imgId}`;
+    let url = `images/${imgSize}-${imgId}`;
     console.log("BACKGROUND IMAGE USED:" + url);
     $(".background").css(`background-image`, `url("${url}.png")`);
 

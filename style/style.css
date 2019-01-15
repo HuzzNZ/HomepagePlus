@@ -62,7 +62,7 @@
     position: absolute;
     align-self: start;
     justify-self: start;
-    text-shadow: 0 0 35px white;
+    text-shadow: 0 0 25px white;
 }
 
     .weather .city {
@@ -89,7 +89,7 @@
 .greeting p {
     font-size: 26px;
     font-weight: 400;
-    text-shadow: 0 0 15px white;
+    text-shadow: 0 0 25px white;
 }
 
 .select-overlay {
