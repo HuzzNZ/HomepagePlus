@@ -1,6 +1,6 @@
 $(document).ready(function main(){
     /* Time Element */
-    $("#fade").hide(0).delay(1000).fadeIn(1000);
+    $("#fade").hide(0).delay(1000).fadeIn(1800);
     let updateTime = setInterval(function updateTime() {
             let hourNow = moment().format("hh");
             let minuteNow = moment().format("mm");
@@ -9,13 +9,29 @@ $(document).ready(function main(){
             let monthYearNow = moment().format("MMMM, YYYY");
             let meridian = moment().format("a");
             hourNow = parseInt(hourNow);
+            minuteNow = parseInt(minuteNow);
+
+            let dateText;
+            if ((hourNow > 5 && 12 > hourNow) || (hourNow === 5 && minuteNow >= 30)){
+                dateText = "Good Morning!";
+            } else if (hourNow > 11 && 18 > hourNow) {
+                dateText = "Good Afternoon!";
+            } else {
+                dateText = "Good Evening!";
+            }
+
+            console.log(hourNow, ":", minuteNow);
+            $(".greeting-text").html(dateText);
+
             if (hourNow === 12){
                 hourNow -= 12;
             }
             if (meridian === "pm"){
                 hourNow += 12;
             }
-            let timeNow = hourNow + ":" + minuteNow;
+            let hourNowStr = hourNow.toString();
+            let minuteNowStr = minuteNow.toString();
+            let timeNow = hourNowStr.padStart(2, "0") + ":" + minuteNowStr.padStart(2, "0");
             $("#time-text").html(timeNow);
             let daySup = "th";
 
@@ -35,17 +51,17 @@ $(document).ready(function main(){
     );
 
     /* Background Scripts */
-    const screenWidth = screen.width;
-    let imgSize = "";
-    if (screenWidth <= 1920){
-        imgSize = "large"
-    } else if (screenWidth > 1920){
-        imgSize = "4k"
-    } else {
-        imgSize = "large"
-    }
+    // const screenWidth = screen.width;
+    // let imgSize = "";
+    // if (screenWidth <= 1920){
+    //     imgSize = "large"
+    // } else if (screenWidth > 1920){
+    //     imgSize = "4k"
+    // } else {
+    //     imgSize = "large"
+    // }
     let imgId = Math.floor((Math.random() * 9) + 1);
-    let url = `images/${imgSize}-${imgId}`;
+    let url = `images/4k-${imgId}`;
     console.log("BACKGROUND IMAGE USED:" + url);
     $(".background").css(`background-image`, `url("${url}.png")`);
 
@@ -93,10 +109,10 @@ $(document).ready(function main(){
         let mouseYPercentage = mouseY / windowHeight;
         let mouseXOffset = mouseXPercentage - 0.5;
         let mouseYOffset = mouseYPercentage - 0.5;
-        let windowPaddingWidthLeft = windowPaddingWidth + ((mouseXOffset) * windowPaddingWidth / 1.5);
-        let windowPaddingWidthRight = windowPaddingWidth - ((mouseXOffset) * windowPaddingWidth / 1.5);
-        let windowPaddingHeightTop = windowPaddingHeight + ((mouseYOffset) * windowPaddingHeight / 1.5);
-        let windowPaddingHeightBottom = windowPaddingHeight - ((mouseYOffset) * windowPaddingHeight / 1.5);
+        let windowPaddingWidthLeft = windowPaddingWidth + ((mouseXOffset) * windowPaddingWidth / 2.2);
+        let windowPaddingWidthRight = windowPaddingWidth - ((mouseXOffset) * windowPaddingWidth / 2.2);
+        let windowPaddingHeightTop = windowPaddingHeight + ((mouseYOffset) * windowPaddingHeight / 2.2);
+        let windowPaddingHeightBottom = windowPaddingHeight - ((mouseYOffset) * windowPaddingHeight / 2.2);
         $(".parallax").css("padding", `${windowPaddingHeightTop}px ${windowPaddingWidthRight}px ${windowPaddingHeightBottom}px ${windowPaddingWidthLeft}px`);
     })
 });

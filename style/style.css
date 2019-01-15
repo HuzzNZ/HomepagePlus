@@ -18,8 +18,7 @@
     height: 100vh;
     width: 100vw;
     z-index: -10;
-    background-image: none;
-    opacity: 0.34;
+    opacity: 0.4;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -56,7 +55,7 @@
 #time-date sup {
     font-size: 16px;
     font-weight: 400;
-    text-shadow: 0 0 35px white;
+    text-shadow: 0 0 15px white;
 }
 
 .weather {
@@ -88,8 +87,9 @@
 }
 
 .greeting p {
-    font-size: 30px;
-    font-weight: 200;
+    font-size: 26px;
+    font-weight: 400;
+    text-shadow: 0 0 15px white;
 }
 
 .select-overlay {
