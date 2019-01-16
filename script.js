@@ -8,8 +8,18 @@ $(document).ready(function main(){
             let dayNow = moment().format("DD");
             let monthYearNow = moment().format("MMMM, YYYY");
             let meridian = moment().format("a");
+            let monthNum = parseInt(moment().format("MM"));
+            let yearNum = parseInt(moment().format("YYYY"));
             hourNow = parseInt(hourNow);
             minuteNow = parseInt(minuteNow);
+            console.log(hourNow);
+
+            if (hourNow === 12){
+                hourNow -= 12;
+            }
+            if (meridian === "pm"){
+                hourNow += 12;
+            }
 
             let dateText;
             if ((hourNow > 5 && 12 > hourNow) || (hourNow === 5 && minuteNow >= 30)){
@@ -20,15 +30,71 @@ $(document).ready(function main(){
                 dateText = "Good Evening!";
             }
 
-            console.log(hourNow, ":", minuteNow);
+            let leapYear;
+            if (yearNum % 4 !== 0 || yearNum % 100 === 0) {
+                leapYear = false;
+            } else leapYear = yearNum % 4 === 0;
+
+            monthNum--;
+
+            let cmlDayInYear = 30 * monthNum + parseInt(dayNow);
+
+            if (monthNum >= 1) {
+                cmlDayInYear++;
+            }
+            if (monthNum >= 2 && leapYear === false) {
+                cmlDayInYear--;
+                cmlDayInYear--;
+            } else if (monthNum >= 2 && leapYear === true) {
+                cmlDayInYear--;
+            }
+            if (monthNum >= 3) {
+                cmlDayInYear++;
+            }
+            if (monthNum >= 5) {
+                cmlDayInYear++;
+            }
+            if (monthNum >= 7) {
+                cmlDayInYear++;
+            }
+            if (monthNum >= 8) {
+                cmlDayInYear++;
+            }
+            if (monthNum >= 10) {
+                cmlDayInYear++;
+            }
+
+            let cmlWeekInYear = parseInt(moment().format("WW"));
+
+            monthNum++;
+            let quarter = Math.ceil(monthNum / 3);
+
+            function findSuffix(num) {
+                num = num.toString();
+                let daySup;
+                if (num === "1" || num === "21" || num === "31"){
+                    daySup = "st"
+                } else if (num === "2" || num === "22"){
+                    daySup = "nd"
+                } else if (num === "3" || num === "23"){
+                    daySup = "rd"
+                } else {
+                    daySup = "th"
+                }
+                return daySup;
+            }
+
+            // console.log(cmlDayInYear, findSuffix(cmlDayInYear), cmlWeekInYear, findSuffix(cmlWeekInYear), quarter);
+            $("#yc-day").html(cmlDayInYear);
+            $("#yc-day-suffix").html(findSuffix(cmlDayInYear));
+            $("#yc-year").html(yearNum);
+            $("#yc-quarter").html(`Q${quarter}`);
+            $("#yc-week").html(cmlWeekInYear);
+            $("#yc-week-suffix").html(findSuffix(cmlWeekInYear));
+
+            // console.log(hourNow, ":", minuteNow);
             $(".greeting-text").html(dateText);
 
-            if (hourNow === 12){
-                hourNow -= 12;
-            }
-            if (meridian === "pm"){
-                hourNow += 12;
-            }
             let hourNowStr = hourNow.toString();
             let minuteNowStr = minuteNow.toString();
             let timeNow = hourNowStr.padStart(2, "0") + ":" + minuteNowStr.padStart(2, "0");
@@ -46,7 +112,7 @@ $(document).ready(function main(){
             }
             let dateNow = dayWNow + ", " + dayNow + '<sup>' + daySup + '</sup> of ' + monthYearNow;
             $("#time-date").html(dateNow);
-            console.log(timeNow);
+            // console.log(timeNow);
         }, 1000
     );
 

@@ -83,13 +83,37 @@
 }
 
 .greeting {
-    margin: auto auto 10px auto;
+    margin: auto auto 5px 0;
 }
 
 .greeting p {
-    font-size: 26px;
+    font-size: 23px;
+    font-weight: 700;
+    text-shadow: 0 0 25px white;
+}
+
+.year-count {
+    margin: auto 0 5px auto;
+}
+
+.year-count p {
+    font-size: 23px;
     font-weight: 400;
     text-shadow: 0 0 25px white;
+}
+
+.year-count b {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.year-count sup {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.year-count sup b {
+    font-size: 13px;
 }
 
 .select-overlay {
