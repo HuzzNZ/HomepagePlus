@@ -117,16 +117,8 @@ $(document).ready(function main(){
     );
 
     /* Background Scripts */
-    const screenWidth = screen.width;
-    let imgSize = "";
-    if (screenWidth <= 1920){
-        imgSize = "large"
-    } else if (screenWidth > 1920){
-        imgSize = "4k"
-    } else {
-        imgSize = "large"
-    }
-    let imgId = Math.floor((Math.random() * 9) + 1);
+    let imgSize = "large";
+    let imgId = Math.floor((Math.random() * 8) + 1);
     let url = `images/${imgSize}-${imgId}`;
     console.log("BACKGROUND IMAGE USED:" + url);
     $(".background").css(`background-image`, `url("${url}.png")`);
@@ -162,23 +154,23 @@ $(document).ready(function main(){
         updateWeather()
     }, 60000);
 
-    /* Parallax */
-    const areaSelector = ".main-area";
-    const windowHeight = $(areaSelector).height();
-    const windowWidth = $(areaSelector).width();
-    let windowPaddingHeight = windowHeight * 0.03;
-    let windowPaddingWidth = windowWidth * 0.03;
-    $(areaSelector).on("mousemove", function(event){
-        let mouseX = event.clientX;
-        let mouseY = event.clientY;
-        let mouseXPercentage = mouseX / windowWidth;
-        let mouseYPercentage = mouseY / windowHeight;
-        let mouseXOffset = mouseXPercentage - 0.5;
-        let mouseYOffset = mouseYPercentage - 0.5;
-        let windowPaddingWidthLeft = windowPaddingWidth + ((mouseXOffset) * windowPaddingWidth / 2.2);
-        let windowPaddingWidthRight = windowPaddingWidth - ((mouseXOffset) * windowPaddingWidth / 2.2);
-        let windowPaddingHeightTop = windowPaddingHeight + ((mouseYOffset) * windowPaddingHeight / 2.2);
-        let windowPaddingHeightBottom = windowPaddingHeight - ((mouseYOffset) * windowPaddingHeight / 2.2);
-        $(".parallax").css("padding", `${windowPaddingHeightTop}px ${windowPaddingWidthRight}px ${windowPaddingHeightBottom}px ${windowPaddingWidthLeft}px`);
-    })
+    /* Parallax, UNDER RECONSIDERATION */
+    // const areaSelector = ".main-area";
+    // const windowHeight = $(areaSelector).height();
+    // const windowWidth = $(areaSelector).width();
+    // let windowPaddingHeight = windowHeight * 0.03;
+    // let windowPaddingWidth = windowWidth * 0.03;
+    // $(areaSelector).on("mousemove", function(event){
+    //     let mouseX = event.clientX;
+    //     let mouseY = event.clientY;
+    //     let mouseXPercentage = mouseX / windowWidth;
+    //     let mouseYPercentage = mouseY / windowHeight;
+    //     let mouseXOffset = mouseXPercentage - 0.5;
+    //     let mouseYOffset = mouseYPercentage - 0.5;
+    //     let windowPaddingWidthLeft = windowPaddingWidth + ((mouseXOffset) * windowPaddingWidth / 2.2);
+    //     let windowPaddingWidthRight = windowPaddingWidth - ((mouseXOffset) * windowPaddingWidth / 2.2);
+    //     let windowPaddingHeightTop = windowPaddingHeight + ((mouseYOffset) * windowPaddingHeight / 2.2);
+    //     let windowPaddingHeightBottom = windowPaddingHeight - ((mouseYOffset) * windowPaddingHeight / 2.2);
+    //     $(".parallax").css("padding", `${windowPaddingHeightTop}px ${windowPaddingWidthRight}px ${windowPaddingHeightBottom}px ${windowPaddingWidthLeft}px`);
+    // })
 });

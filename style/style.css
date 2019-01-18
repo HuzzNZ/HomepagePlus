@@ -18,7 +18,7 @@
     height: 100vh;
     width: 100vw;
     z-index: -10;
-    opacity: 0.5;
+    opacity: 0.38;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -28,7 +28,7 @@
     display: flex;
     height: 94vh;
     width: 94vw;
-    padding: 3vh 3vw;
+    padding: 3vh 2.2vw;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -58,10 +58,63 @@
     text-shadow: 0 0 15px white;
 }
 
+.quick-access {
+    position: absolute;
+    height: 300px;
+    width: 32px;
+    align-self: flex-start;
+    z-index: 51;
+    margin: 3vh auto auto 2.2vw;
+}
+
+.quick-access .qa-button .qa-icon {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    margin: 25px 0;
+    text-shadow: 0 0 15px white;
+    transition-property: width, height;
+    transition-duration: 170ms;
+    -moz-transition-property: width, height;
+    -moz-transition-duration: 170ms;
+    -webkit-transition-property: width, height;
+    -webkit-transition-duration: 170ms;
+}
+
+.quick-access .qa-button .qa-icon:hover {
+    width: 40px;
+    height: 40px;
+}
+
+.quick-access .qa-button #reddit {
+    margin-top: 3px;
+    background-image: url("../images/icons/reddit.png");
+}
+.quick-access .qa-button #gmail {
+    background-image: url("../images/icons/gmail.png");
+}
+.quick-access .qa-button #gdrive {
+    background-image: url("../images/icons/gdrive.png");
+}
+.quick-access .qa-button #outlook {
+    background-image: url("../images/icons/outlook.png");
+}
+.quick-access .qa-button #youtube {
+    background-image: url("../images/icons/youtube.png");
+}
+.quick-access .qa-button #twitter {
+    background-image: url("../images/icons/twitter.png");
+}
+.quick-access .qa-button #facebook {
+    background-image: url("../images/icons/facebook.png");
+}
+.quick-access .qa-button #steam {
+    background-image: url("../images/icons/steam.png");
+}
+
 .weather {
     position: absolute;
     align-self: start;
-    justify-self: start;
     text-shadow: 0 0 25px white;
 }
 
