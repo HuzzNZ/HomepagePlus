@@ -6,6 +6,7 @@
     font-size: 32px;
     margin: 0;
     padding: 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
 }
 
 .main-area {
@@ -34,6 +35,15 @@
     text-align: center;
 }
 
+.overlay {
+    background-color: rgba(0, 0, 0, 0.0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 .time-piece {
     position: absolute;
     margin: auto;
@@ -42,20 +52,18 @@
 
 #time-text {
     font-size: 145px;
-    text-shadow: 0 0 65px white;
     opacity: 1;
+    text-shadow: 0 0 75px rgba(255, 255, 255, 0.4);
 }
 
 #time-date {
     font-size: 26px;
     font-weight: 400;
-    text-shadow: 0 0 35px white;
 }
 
 #time-date sup {
     font-size: 16px;
     font-weight: 400;
-    text-shadow: 0 0 15px white;
 }
 
 .quick-access {
@@ -72,13 +80,13 @@
     height: 32px;
     background-size: contain;
     margin: 25px 0;
-    text-shadow: 0 0 15px white;
     transition-property: width, height;
-    transition-duration: 170ms;
+    transition-duration: 120ms;
     -moz-transition-property: width, height;
-    -moz-transition-duration: 170ms;
+    -moz-transition-duration: 120ms;
     -webkit-transition-property: width, height;
-    -webkit-transition-duration: 170ms;
+    -webkit-transition-duration: 120ms;
+    filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.5));
 }
 
 .quick-access .qa-button .qa-icon:hover {
@@ -115,7 +123,7 @@
 .weather {
     position: absolute;
     align-self: start;
-    text-shadow: 0 0 25px white;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 }
 
     .weather .city {
@@ -126,6 +134,8 @@
 
     #linebreak {
         font-size: 25px;
+        border: 1px solid rgb(0, 0, 0);
+        border-top: 0;
         padding: 0;
         margin: 2px 0;
     }
@@ -142,7 +152,6 @@
 .greeting p {
     font-size: 23px;
     font-weight: 700;
-    text-shadow: 0 0 25px white;
 }
 
 .year-count {
@@ -152,7 +161,6 @@
 .year-count p {
     font-size: 23px;
     font-weight: 400;
-    text-shadow: 0 0 25px white;
 }
 
 .year-count b {

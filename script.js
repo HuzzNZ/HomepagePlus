@@ -95,6 +95,9 @@ $(document).ready(function main(){
             // console.log(hourNow, ":", minuteNow);
             $(".greeting-text").html(dateText);
 
+            let totalMin = (hourNow * 60) + minuteNow;
+            console.log(totalMin);
+
             let hourNowStr = hourNow.toString();
             let minuteNowStr = minuteNow.toString();
             let timeNow = hourNowStr.padStart(2, "0") + ":" + minuteNowStr.padStart(2, "0");
