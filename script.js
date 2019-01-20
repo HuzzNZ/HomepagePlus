@@ -96,7 +96,25 @@ $(document).ready(function main(){
             $(".greeting-text").html(dateText);
 
             let totalMin = (hourNow * 60) + minuteNow;
+            let overlayAlpha;
             console.log(totalMin);
+
+            if (totalMin < 480){
+                overlayAlpha = 0.6;
+            } else if (totalMin > 480 && totalMin < 601){
+                overlayAlpha = 0.6 - ((totalMin - 480) / 200);
+            } else if (totalMin > 600 && totalMin < 1201){
+                overlayAlpha = 0;
+            } else if (totalMin > 1200 && totalMin < 1321){
+                overlayAlpha = (totalMin - 1200) / 200;
+            } else if (totalMin > 1320){
+                overlayAlpha = 0.6;
+            } else {
+                overlayAlpha = 0;
+            }
+
+            $(".overlay").css("background-color", `rgba(0, 0, 0, ${overlayAlpha}`);
+            console.log(overlayAlpha);
 
             let hourNowStr = hourNow.toString();
             let minuteNowStr = minuteNow.toString();
