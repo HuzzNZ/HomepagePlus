@@ -99,23 +99,43 @@ $(document).ready(function main(){
 
             let totalMin = (hourNow * 60) + minuteNow;
             let overlayAlpha;
+            let backgroundAlpha;
             console.log(totalMin);
 
             if (totalMin < 480){
+
                 overlayAlpha = 0.6;
+                backgroundAlpha = 0.8
+
             } else if (totalMin > 480 && totalMin < 601){
-                overlayAlpha = 0.6 - ((totalMin - 480) / 200);
+
+                const deduction = (totalMin - 480) / 200;
+                overlayAlpha = 0.6 - deduction;
+                backgroundAlpha = 0.8 - (deduction / 1.5);
+
             } else if (totalMin > 600 && totalMin < 1201){
+
                 overlayAlpha = 0;
+                backgroundAlpha = 0.4;
+
             } else if (totalMin > 1200 && totalMin < 1321){
-                overlayAlpha = (totalMin - 1200) / 200;
+
+                const increase = (totalMin - 1200) / 200;
+                overlayAlpha = increase;
+                backgroundAlpha = 0.4 + (increase / 1.5);
+
             } else if (totalMin > 1320){
+
                 overlayAlpha = 0.6;
+                backgroundAlpha = 0.8;
+
             } else {
                 overlayAlpha = 0;
+                backgroundAlpha = 0.4;
             }
 
-            $(".overlay").css("background-color", `rgba(0, 0, 0, ${overlayAlpha}`);
+            $(".overlay").css("background-color", `rgba(80, 80, 80, ${overlayAlpha}`);
+            $(".background").css("opacity", backgroundAlpha);
             console.log(overlayAlpha);
 
             let hourNowStr = hourNow.toString();
