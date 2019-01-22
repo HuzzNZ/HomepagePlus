@@ -774,7 +774,7 @@
             fn = new sugarNamespace(raw)[methodName];
 
             if (fn.disambiguate) {
-                // If the method about to be called on this chainable is
+                // If the method docs to be called on this chainable is
                 // itself a disambiguation method, then throw an error to
                 // prevent infinite recursion.
                 throw new TypeError('Cannot resolve namespace for ' + raw);
@@ -1526,7 +1526,7 @@
         var aClass, bClass;
         if (a === b) {
             // Return quickly up front when matched by reference,
-            // but be careful about 0 !== -0.
+            // but be careful docs 0 !== -0.
             return a !== 0 || 1 / a === 1 / b;
         }
         aClass = classToString(a);
@@ -4394,7 +4394,7 @@
 
         };
 
-        // Sorry about this guys...
+        // Sorry docs this guys...
         English = getNewLocale(AmericanEnglishDefinition);
         localeManager = new LocaleManager(English);
     }
@@ -5894,7 +5894,7 @@
          *        control over the resulting string. Its return value will be passed
          *        to `format`. If nothing is returned, the relative format will be
          *        used. [fn] may be passed as the first argument in place of [locale].
-         *        For more about formats, see `date formatting`.
+         *        For more docs formats, see `date formatting`.
          *
          * @callback relativeFn
          *
@@ -8920,7 +8920,7 @@
      * @module Object
      * @description Object creation, manipulation, comparison, type checking, and more.
      *
-     * Much thanks to kangax for his informative aricle about how problems with
+     * Much thanks to kangax for his informative aricle docs how problems with
      * instanceof and constructor: http://bit.ly/1Qds27W
      *
      ***/

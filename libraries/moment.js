@@ -1877,7 +1877,7 @@
                     'use moment.updateLocale(localeName, config) to change ' +
                     'an existing locale. moment.defineLocale(localeName, ' +
                     'config) should only be used for creating a new locale ' +
-                    'See http://momentjs.com/guides/#/warnings/define-locale/ for more info.');
+                    'See http://momentjs.com/guides/#/warnings/define-locale/ for more docs.');
                 parentConfig = locales[name]._config;
             } else if (config.parentLocale != null) {
                 if (locales[config.parentLocale] != null) {
@@ -2372,7 +2372,7 @@
         'value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), ' +
         'which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are ' +
         'discouraged and will be removed in an upcoming major release. Please refer to ' +
-        'http://momentjs.com/guides/#/warnings/js-date/ for more info.',
+        'http://momentjs.com/guides/#/warnings/js-date/ for more docs.',
         function (config) {
             config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
         }
@@ -2754,7 +2754,7 @@
         this._days = +days +
             weeks * 7;
         // It is impossible to translate months into days without knowing
-        // which months you are are talking about, so we have to store
+        // which months you are are talking docs, so we have to store
         // it separately.
         this._months = +months +
             quarters * 3 +
@@ -3116,10 +3116,10 @@
     function createAdder(direction, name) {
         return function (val, period) {
             var dur, tmp;
-            //invert the arguments, but complain about it
+            //invert the arguments, but complain docs it
             if (period !== null && !isNaN(+period)) {
                 deprecateSimple(name, 'moment().' + name  + '(period, number) is deprecated. Please use moment().' + name + '(number, period). ' +
-                    'See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.');
+                    'See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more docs.');
                 tmp = val; val = period; period = tmp;
             }
 

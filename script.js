@@ -1,6 +1,8 @@
 $(document).ready(function main(){
     /* Time Element */
     $("#fade").hide(0).delay(1000).fadeIn(1800);
+    $(".content").hide(0).delay(0).fadeIn(1000);
+    $(".slow-fade").hide(0).delay(1000).fadeIn(2000);
     let updateTime = setInterval(function updateTime() {
             let hourNow = moment().format("hh");
             let minuteNow = moment().format("mm");
@@ -138,9 +140,18 @@ $(document).ready(function main(){
     );
 
     /* Background Scripts */
+    let fileName = location.pathname;
+    let dirLevel = fileName.split('/').length-1;
+    console.log(dirLevel);
+    let urlPrefix;
+    if (dirLevel === 2){
+        urlPrefix = ""
+    } else {
+        urlPrefix = "../"
+    }
     let imgSize = "large";
     let imgId = Math.floor((Math.random() * 8) + 1);
-    let url = `images/${imgSize}-${imgId}`;
+    let url = `${urlPrefix}images/${imgSize}-${imgId}`;
     console.log("BACKGROUND IMAGE USED:" + url);
     $(".background").css(`background-image`, `url("${url}.png")`);
 
