@@ -9,13 +9,53 @@
     font-size: 25px;
 }
 
+p {
+    font-size: 22px;
+    font-weight: 200;
+}
+
 h1 {
     font-size: 65px;
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: 200;
+}
+
+h2 b {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 200;
+}
+
+h3 b {
+    font-size: 30px;
+    font-weight: 600;
 }
 
 hr {
     margin-top: 10px;
     margin-bottom: 18px;
+}
+
+.short-hr {
+    width: 50%;
+    border-bottom: 0;
+    margin-top: 7px;
+    margin-bottom: 15px;
+}
+
+.shorter-hr {
+    width: 30%;
+}
+
+#opacity-02 {
+    opacity: 0.2 !important;
 }
 
 .content {
@@ -54,6 +94,34 @@ hr {
     font-size: 25px;
     font-weight: 600;
     opacity: 0.7;
+}
+
+.return-to-top {
+    width: auto;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: auto 4% 22px auto;
+    transition-property: padding-bottom;
+    transition-duration: 100ms;
+}
+
+.return-to-top:hover {
+    padding-bottom: 5px;
+}
+
+#rtt {
+    font-size: 25px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: black;
+}
+
+#rtt:hover {
+    text-decoration: underline;
 }
 
 .nav-bar {
@@ -97,6 +165,62 @@ hr {
 .main-content {
     padding: 25px 35px;
     height: auto;
+}
+
+.directory-box {
+    width: 60%;
+    height: auto;
+    overflow: auto;
+    background-color: rgba(195, 195, 195, 0.3);
+    margin: 20px 0;
+}
+
+.directory {
+    padding: 12px 24px 24px 24px;
+}
+
+.directory a {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #250090;
+    letter-spacing: 2px;
+    transition-property: text-decoration, letter-spacing;
+    transition-duration: 100ms;
+    margin: 18px 0 0 0;
+}
+
+.directory a:hover {
+    text-decoration: underline;
+    letter-spacing: 3px;
+}
+
+.directory a p {
+    font-size: 20px;
+}
+
+.directory .level-2-dir {
+    margin: 8px 0 0 55px;
+}
+
+.directory .level-2-dir p {
+    font-size: 17px;
+    font-weight: 200;
+}
+
+.directory .level-3-dir {
+    margin: 5px 0 0 110px;
+}
+
+.directory .level-3-dir p {
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.level-3-info {
+    margin-left: 50px;
 }
 
 .background {
