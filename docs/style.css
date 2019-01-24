@@ -7,6 +7,13 @@
     margin: 0;
     padding: 0;
     font-size: 25px;
+    text-align: justify;
+}
+
+img {
+    margin: 22px 22px 22px 0;
+    display: inline-block;
+    border: 2px solid black;
 }
 
 p {
@@ -38,6 +45,21 @@ h3 b {
     font-weight: 600;
 }
 
+a {
+    text-decoration: none;
+    color: #250090;
+    font-size: inherit;
+    font-weight: 400;
+}
+
+b {
+    font-size: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 hr {
     margin-top: 10px;
     margin-bottom: 18px;
@@ -52,6 +74,7 @@ hr {
 
 .shorter-hr {
     width: 30%;
+    border-bottom: 0;
 }
 
 #opacity-02 {
@@ -221,6 +244,28 @@ hr {
 
 .level-3-info {
     margin-left: 50px;
+}
+
+.linkbox {
+    border-radius: 8px;
+    border: 1px solid #222222;
+    background-color: rgba(100, 100, 100, 0.15);
+    width: auto;
+    margin: 10px 0;
+    transition-property: background-color;
+    transition-duration: 100ms;
+}
+
+.linkbox:hover {
+    background-color: rgba(100, 100, 100, 0.23)
+}
+
+.linkbox p {
+    display: block;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-family: "Courier New", monospace;
+    width: auto;
 }
 
 .background {
