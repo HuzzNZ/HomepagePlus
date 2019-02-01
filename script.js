@@ -72,14 +72,16 @@ $(document).ready(function main(){
             let quarter = Math.ceil(monthNum / 3);
 
             function findSuffix(num) {
-                num = num.toString();
+                num = num.toString().substr(-1);
                 let daySup;
-                if (num === "1" || num === "21" || num === "31"){
+                if (num === "1"){
                     daySup = "st"
-                } else if (num === "2" || num === "22"){
+                } else if (num === "2"){
                     daySup = "nd"
-                } else if (num === "3" || num === "23"){
+                } else if (num === "3"){
                     daySup = "rd"
+                } else if (num === "11" || num === "12" || num === "13") {
+                    daySup = "th"
                 } else {
                     daySup = "th"
                 }
@@ -144,11 +146,13 @@ $(document).ready(function main(){
             $("#time-text").html(timeNow);
             let daySup = "th";
 
-            if (dayNow === "1" || dayNow === "21" || dayNow === "31"){
+            console.log(dayNow);
+
+            if (dayNow === "01" || dayNow === "21" || dayNow === "31"){
                 daySup = "st"
-            } else if (dayNow === "2" || dayNow === "22"){
+            } else if (dayNow === "02" || dayNow === "22"){
                 daySup = "nd"
-            } else if (dayNow === "3" || dayNow === "23"){
+            } else if (dayNow === "03" || dayNow === "23"){
                 daySup = "rd"
             } else {
                 daySup = "th"
