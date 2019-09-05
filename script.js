@@ -166,7 +166,7 @@ $(document).ready(function main(){
     /* Background Scripts */
     let imgSize = "large";
     let imgId = Math.floor((Math.random() * 8) + 1);
-    let url = `../images/${imgSize}-${imgId}`;
+    let url = `images/${imgSize}-${imgId}`;
     console.log("BACKGROUND IMAGE USED:" + url);
     $(".background").css(`background-image`, `url("${url}.png")`);
 
